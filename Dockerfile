@@ -1,4 +1,4 @@
-FROM debian:unstable-slim
+FROM debian:bullseye-slim
 
 RUN apt -y update \
     && apt -y install wget build-essential curl git unzip  nginx nano  \
