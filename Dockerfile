@@ -15,8 +15,8 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - \
-    && apt -y install nodejs \
-    && npm i -g pm2 \
+    && apt -y install nodejs 
+RUN npm i -g pm2 \
     && npm i -g yarn  \
     && systemctl enable nginx \
     && systemctl enable php7.0-fpm \
