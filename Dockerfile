@@ -1,7 +1,7 @@
 FROM debian:unstable-slim
 
-RUN apt update \
-    && apt -y install wget build-essential curl git unzip python-certbot-nginx nginx nano  \
+RUN apt -y update \
+    && apt -y install wget build-essential curl git unzip  nginx nano  \
     && apt -y install apt-transport-https ca-certificates lsb-release \
     && wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
     && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
