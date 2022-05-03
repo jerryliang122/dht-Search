@@ -1,4 +1,4 @@
-FROM debian:10-slim
+FROM debian:bullseye-slim
 
 RUN apt -y update \
     && apt -y install wget build-essential curl git unzip  nginx nano net-tools \
@@ -8,13 +8,8 @@ RUN apt -y update \
     && apt -y update \
     &&  apt -y install php7.0-common php7.0-cli php7.0-cgi php7.0-fpm php7.0-mysql php7.0-sqlite3 php7.0-curl php7.0-mbstring \
     && apt -y install gnupg default-jre \ 
-    #&& wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.2.0-amd64.deb \ 
-    #&& dpkg -i elasticsearch-8.2.0-amd64.deb
-    && apt -y install gnupg default-jre \
-    && wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - \
-    && echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | tee -a /etc/apt/sources.list.d/elastic-7.x.list \
-    && apt -y update \
-    && apt -y install elasticsearch
+    && wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-8.2.0-amd64.deb \ 
+    && dpkg -i elasticsearch-8.2.0-amd64.deb
 
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/bin/composer

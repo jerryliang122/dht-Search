@@ -33,9 +33,7 @@ jobs:
         with:
           push: true
           platforms: |
-            linux/386
             linux/amd64
-            linux/arm64/v8
           build-args: |
             APP_NAME=${{ env.APP_NAME }}
             APP_VERSION=${{ env.APP_VERSION }}
